@@ -2,6 +2,18 @@ name: Compiling Help
 description: Report an issue with compiling the game.
 labels: ["type: compilation help", "status: pending triage"]
 title: "Compiling Help: "
+on:
+  workflow_dispatch:
+    inputs:
+      build-defines:
+        type: string
+        description: Build defines to use
+        default: '-DGITHUB_BUILD'
+      save-artifact:
+        type: boolean
+        description: Save the build artifact to Github Actions (sends to itch otherwise)
+        default: false
+  push:
 body:
   - type: markdown
     attributes:
