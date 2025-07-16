@@ -161,12 +161,12 @@ jobs:
       - name: Build game (windows)
         if: ${{ matrix.target == 'windows' }}
         run: |
-          haxelib run lime build windows -v -release $BUILD_DEFINES
+          haxelib run lime build android -v -release $BUILD_DEFINES
         timeout-minutes: 120
       - name: Build game (unix)
         if: ${{ matrix.target != 'windows' }}
         run: |
-          haxelib run lime build ${{ matrix.target }} -v -release --times $BUILD_DEFINES
+          haxelib run lime build android -v -release --times $BUILD_DEFINES
         timeout-minutes: 120
       - name: Save build artifact to Github Actions
         if: ${{ github.event.inputs.save-artifact }}
